@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono, Syne } from "next/font/google";
 import "./globals.css";
 
@@ -22,6 +22,12 @@ export const metadata: Metadata = {
   title: "Sarmed Mahmood · Portfolio",
   description:
     "CIS Software Development · Apple Technical Specialist · Projects and experience.",
+};
+
+/** Explicit viewport avoids ambiguous scaling across hosts / embedded previews vs local dev. */
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({

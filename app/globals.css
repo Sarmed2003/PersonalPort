@@ -15,6 +15,7 @@
 /* Rich but controlled: warm amber (TR) → slate-teal (mid) → deep navy (BL). Slightly lighter base for legibility. */
 /* prettier-ignore */
 body {
+  overflow-x: clip;
   min-height: 100dvh;
   color: var(--foreground);
   position: relative;
@@ -55,6 +56,11 @@ body {
 html {
   min-height: 100dvh;
   background: #0a1020;
+  /* Prevent mobile/desktop browsers from inflating text (reads as “zoomed” UI). */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* Avoid vw scrollbar overflow subtly shifting layout vs localhost. */
+  overflow-x: clip;
 }
 
 .ua-page-bg {
@@ -124,8 +130,19 @@ html {
  */
 .portfolio-device-shell {
   box-sizing: border-box;
-  --pf-device-h: min(86dvh, 860px);
-  width: min(99vw, calc(var(--pf-device-h) * 10.35 / 19.2));
+  /*
+   * Use vh (not dvh) for shell height on large screens so deployed CSS matches
+   * typical localhost sizing — dvh tracks dynamic browser chrome and can differ
+   * between tabs, embedded previews, and production.
+   */
+  --pf-device-h: min(86vh, 860px);
+  width: min(100%, min(99vw, calc(var(--pf-device-h) * 10.35 / 19.2)));
   height: var(--pf-device-h);
+}
+
+@media (max-width: 767px) {
+  .portfolio-device-shell {
+    --pf-device-h: min(86dvh, 860px);
+  }
 }
 
