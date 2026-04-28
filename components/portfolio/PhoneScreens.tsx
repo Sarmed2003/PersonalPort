@@ -43,11 +43,11 @@ export function PhoneScreens({
 }) {
   return (
     <div className="flex h-full min-h-0 w-full min-w-0 flex-1 flex-col bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
-      <div className="shrink-0 border-b border-white/6 bg-slate-950/40 px-2.5 py-1.5">
-        <p className="px-0.5 pb-1 text-[10px] font-medium uppercase tracking-wider text-slate-500">
+      <div className="shrink-0 border-b border-white/6 bg-slate-950/40 px-2 py-1.5">
+        <p className="px-0.5 pb-0.5 text-[9px] font-medium uppercase tracking-wider text-slate-500">
           Scroll through these tiles to learn more!
         </p>
-        <div className="flex flex-wrap gap-2 sm:flex-nowrap sm:overflow-x-auto sm:pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:[&::-webkit-scrollbar]:hidden">
+        <div className="flex flex-wrap gap-1.5 sm:flex-nowrap sm:overflow-x-auto sm:pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:[&::-webkit-scrollbar]:hidden">
           {topicChips.map((c) => {
             const on = activeChip === c.id;
             return (
@@ -58,7 +58,7 @@ export function PhoneScreens({
                 whileTap={{ scale: 0.96 }}
                 whileHover={{ scale: 1.02 }}
                 transition={sp}
-                className={`shrink-0 rounded-full px-2.5 py-1.5 text-xs font-medium transition sm:px-3 sm:py-2 sm:text-[13px] ${
+                className={`shrink-0 rounded-full px-2 py-1 text-[11px] font-medium transition sm:px-2.5 sm:py-1.5 sm:text-xs ${
                   on
                     ? "bg-white/12 text-white ring-1 ring-white/18"
                     : "bg-white/6 text-white/90 hover:bg-white/10"
@@ -80,18 +80,18 @@ export function PhoneScreens({
               animate={screenOn}
               exit={{ opacity: 0, x: -18 }}
               transition={sp}
-              className="ua-themed-scrollbar absolute inset-0 overflow-y-auto overscroll-contain px-3.5 pb-7 pt-7 sm:pt-8"
+              className="ua-themed-scrollbar absolute inset-0 overflow-y-auto overscroll-contain px-3 pb-6 pt-5 sm:pt-6"
             >
-              <div className="mb-5 text-center sm:mb-6">
-                <p className="text-sm font-semibold text-white sm:text-base">
+              <div className="mb-4 text-center sm:mb-5">
+                <p className="text-xs font-semibold text-white sm:text-sm">
                   {profile.name.split(" ")[0]}&apos;s portfolio
                 </p>
-                <p className="mt-0.5 text-xs text-white/50 sm:text-sm">
+                <p className="mt-0.5 text-[11px] text-white/50 sm:text-xs">
                   Scroll and tap an app
                 </p>
               </div>
               <motion.div
-                className="grid grid-cols-3 gap-x-3 gap-y-[1.125rem] sm:gap-x-3.5 sm:gap-y-6"
+                className="grid grid-cols-3 gap-x-2 gap-y-3 sm:gap-x-2.5 sm:gap-y-4"
                 initial="hidden"
                 animate="show"
                 variants={{
@@ -116,16 +116,16 @@ export function PhoneScreens({
                       whileTap={{ scale: 0.94 }}
                       whileHover={{ scale: 1.02 }}
                       transition={sp}
-                      className="group flex flex-col items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded-xl"
+                      className="group flex flex-col items-center gap-1.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded-xl"
                     >
                       <div
-                        className={`flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br text-[1.125rem] shadow-md ring-1 ring-white/10 sm:h-14 sm:w-14 sm:text-[1.45rem] ${app.tint}`}
+                        className={`flex h-9 w-9 items-center justify-center rounded-2xl bg-gradient-to-br text-[1rem] shadow-md ring-1 ring-white/10 sm:h-11 sm:w-11 sm:text-[1.2rem] ${app.tint}`}
                       >
                         <span className="drop-shadow-sm" aria-hidden>
                           {app.icon}
                         </span>
                       </div>
-                      <span className="max-w-[6rem] text-center text-[0.78rem] font-medium leading-snug text-white/90 sm:max-w-[7rem] sm:text-[0.95rem]">
+                      <span className="max-w-[5.25rem] text-center text-[0.68rem] font-medium leading-snug text-white/90 sm:max-w-[6rem] sm:text-[0.78rem]">
                         {app.label}
                       </span>
                     </motion.button>
@@ -142,20 +142,20 @@ export function PhoneScreens({
               transition={sp}
               className="absolute inset-0 flex min-h-0 flex-col bg-slate-950/90"
             >
-              <header className="flex shrink-0 items-center gap-2 border-b border-white/5 px-3 py-2.5">
+              <header className="flex shrink-0 items-center gap-2 border-b border-white/5 px-2.5 py-2">
                 <motion.button
                   type="button"
                   onClick={onBack}
                   whileTap={{ scale: 0.95 }}
-                  className="rounded-lg px-2.5 py-1.5 text-sm font-medium text-slate-200/95 hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20 sm:text-base"
+                  className="rounded-lg px-2 py-1 text-xs font-medium text-slate-200/95 hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20 sm:text-sm"
                 >
                   ‹ Back
                 </motion.button>
-                <h1 className="flex-1 truncate pr-12 text-center text-base font-semibold text-white sm:text-lg">
+                <h1 className="flex-1 truncate pr-10 text-center text-sm font-semibold text-white sm:text-base">
                   {appLabel(screen.app)}
                 </h1>
               </header>
-              <div className="ua-themed-scrollbar min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-3">
+              <div className="ua-themed-scrollbar min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-2.5">
                 <AppList app={screen.app} onOpenItem={onOpenItem} />
               </div>
             </motion.div>
@@ -168,20 +168,20 @@ export function PhoneScreens({
               transition={sp}
               className="absolute inset-0 flex min-h-0 flex-col bg-slate-950/95"
             >
-              <header className="flex shrink-0 items-center gap-2 border-b border-white/5 px-3 py-2.5">
+              <header className="flex shrink-0 items-center gap-2 border-b border-white/5 px-2.5 py-2">
                 <motion.button
                   type="button"
                   onClick={onBack}
                   whileTap={{ scale: 0.95 }}
-                  className="rounded-lg px-2.5 py-1.5 text-sm font-medium text-slate-200/95 hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20 sm:text-base"
+                  className="rounded-lg px-2 py-1 text-xs font-medium text-slate-200/95 hover:bg-white/5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20 sm:text-sm"
                 >
                   ‹ Back
                 </motion.button>
-                <h1 className="flex-1 truncate pr-12 text-center text-base font-semibold text-white sm:text-lg">
+                <h1 className="flex-1 truncate pr-10 text-center text-sm font-semibold text-white sm:text-base">
                   {itemScreenTitle(screen.app, screen.itemId)}
                 </h1>
               </header>
-              <div className="ua-themed-scrollbar min-h-0 flex-1 overflow-y-auto overscroll-contain px-4 py-4 sm:px-5">
+              <div className="ua-themed-scrollbar min-h-0 flex-1 overflow-y-auto overscroll-contain px-3 py-3 sm:px-4">
                 <ItemDetail app={screen.app} itemId={screen.itemId} />
               </div>
             </motion.div>
@@ -201,7 +201,7 @@ function AppList({
 }) {
   if (app === "experience") {
     return (
-      <ul className="space-y-3">
+      <ul className="space-y-2.5">
         {profile.experience.map((job, idx) => {
           return (
             <motion.li
@@ -216,19 +216,19 @@ function AppList({
                 whileTap={{ scale: 0.98 }}
                 whileHover={{ scale: 1.01 }}
                 transition={sp}
-                className="flex w-full items-center gap-3.5 rounded-2xl border border-white/10 bg-white/5 px-3.5 py-3.5 text-left transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20 sm:px-4 sm:py-4"
+                className="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-left transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20 sm:px-3.5 sm:py-3.5"
               >
                 <CompanyMark
                   company={job.company}
                   domain={job.logoDomain}
                   localLogo={experienceLocalLogo(job)}
-                  size={48}
+                  size={42}
                 />
                 <div className="min-w-0 flex-1">
-                  <p className="text-base font-semibold text-white sm:text-[17px]">
+                  <p className="text-sm font-semibold text-white sm:text-[15px]">
                     {job.company}
                   </p>
-                  <p className="text-sm text-white/65 sm:text-base">{job.role}</p>
+                  <p className="text-xs text-white/65 sm:text-sm">{job.role}</p>
                 </div>
               </motion.button>
             </motion.li>
@@ -239,7 +239,7 @@ function AppList({
   }
   if (app === "education") {
     return (
-      <ul className="space-y-3">
+      <ul className="space-y-2.5">
         {educationAppList.map((row, idx) => {
           const isRemote = row.listImage.startsWith("https://");
           const useContain =
@@ -257,9 +257,9 @@ function AppList({
                 whileTap={{ scale: 0.98 }}
                 whileHover={{ scale: 1.01 }}
                 transition={sp}
-                className="flex w-full items-center gap-3.5 rounded-2xl border border-white/10 bg-white/5 px-3.5 py-3.5 text-left transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20 sm:px-4 sm:py-4"
+                className="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-left transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20 sm:px-3.5 sm:py-3.5"
               >
-                <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-white/8 bg-slate-900/80 sm:h-14 sm:w-14">
+                <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-white/8 bg-slate-900/80 sm:h-12 sm:w-12">
                   {useContain ? (
                     <Image
                       src={row.listImage}
@@ -281,10 +281,10 @@ function AppList({
                   )}
                 </div>
                 <div className="min-w-0 flex-1 text-left">
-                  <p className="text-base font-semibold text-white sm:text-[17px]">
+                  <p className="text-sm font-semibold text-white sm:text-[15px]">
                     {row.listTitle}
                   </p>
-                  <p className="text-left text-sm leading-snug text-white/65 sm:text-base">
+                  <p className="text-left text-xs leading-snug text-white/65 sm:text-sm">
                     {row.listSubtitle}
                   </p>
                 </div>
@@ -297,7 +297,7 @@ function AppList({
   }
   if (app === "projects") {
     return (
-      <ul className="space-y-3">
+      <ul className="space-y-2.5">
         {profile.projects.map((p, idx) => {
           const thumb = p.panelImage;
           const oneLine = p.panelSummary;
@@ -313,10 +313,10 @@ function AppList({
                 onClick={() => onOpenItem("projects", p.id)}
                 whileTap={{ scale: 0.98 }}
                 whileHover={{ scale: 1.01 }}
-                className="flex w-full items-center gap-3.5 rounded-2xl border border-white/10 bg-white/5 px-3.5 py-3 text-left sm:gap-4 sm:px-4 sm:py-3.5"
+                className="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-left sm:gap-3 sm:px-3.5 sm:py-3"
               >
                 {thumb ? (
-                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-white/8 bg-slate-900/80 sm:h-14 sm:w-14">
+                  <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-white/8 bg-slate-900/80 sm:h-12 sm:w-12">
                     <Image
                       src={thumb}
                       alt=""
@@ -327,13 +327,13 @@ function AppList({
                     />
                   </div>
                 ) : (
-                  <div className="h-12 w-12 shrink-0 rounded-lg border border-white/8 bg-slate-800/50 sm:h-14 sm:w-14" />
+                  <div className="h-10 w-10 shrink-0 rounded-lg border border-white/8 bg-slate-800/50 sm:h-12 sm:w-12" />
                 )}
                 <div className="min-w-0 flex-1 text-left">
-                  <p className="text-sm font-semibold text-white sm:text-[17px]">
+                  <p className="text-xs font-semibold text-white sm:text-sm">
                     {p.name}
                   </p>
-                  <p className="line-clamp-1 text-xs text-slate-400/95 sm:text-sm sm:text-slate-300/90">
+                  <p className="line-clamp-1 text-[11px] text-slate-400/95 sm:text-xs sm:text-slate-300/90">
                     {oneLine}
                   </p>
                 </div>
@@ -346,7 +346,7 @@ function AppList({
   }
   if (app === "leadership") {
     return (
-      <ul className="space-y-3">
+      <ul className="space-y-2.5">
         {profile.leadership.map((l, idx) => (
           <motion.li
             key={l.id}
@@ -358,9 +358,9 @@ function AppList({
               type="button"
               onClick={() => onOpenItem("leadership", l.id)}
               whileTap={{ scale: 0.98 }}
-              className="flex w-full items-center gap-3.5 rounded-2xl border border-white/10 bg-white/5 px-3.5 py-3.5 text-left sm:px-4 sm:py-4"
+              className="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-left sm:px-3.5 sm:py-3.5"
             >
-              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-white/8 bg-slate-900/80 sm:h-14 sm:w-16">
+              <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-white/8 bg-slate-900/80 sm:h-12 sm:w-12">
                 <Image
                   src={l.listImage}
                   alt={l.listImageAlt}
@@ -371,8 +371,8 @@ function AppList({
                 />
               </div>
               <div className="min-w-0 flex-1">
-                <p className="text-base font-semibold text-white sm:text-[17px]">{l.org}</p>
-                <p className="text-sm text-white/65 sm:text-base">{l.role}</p>
+                <p className="text-sm font-semibold text-white sm:text-[15px]">{l.org}</p>
+                <p className="text-xs text-white/65 sm:text-sm">{l.role}</p>
               </div>
             </motion.button>
           </motion.li>
@@ -382,7 +382,7 @@ function AppList({
   }
   if (app === "skills") {
     return (
-      <ul className="space-y-3">
+      <ul className="space-y-2.5">
         {skillScreenCategories.map((c, idx) => (
           <motion.li
             key={c.id}
@@ -394,12 +394,12 @@ function AppList({
               type="button"
               onClick={() => onOpenItem("skills", c.id)}
               whileTap={{ scale: 0.98 }}
-              className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-left sm:py-4"
+              className="w-full rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-left sm:px-3.5 sm:py-3.5"
             >
-              <p className="text-base font-semibold text-white sm:text-[17px]">
+              <p className="text-sm font-semibold text-white sm:text-[15px]">
                 {c.shortLabel}
               </p>
-              <p className="text-sm text-white/55 sm:text-base">{c.blurb}</p>
+              <p className="text-xs text-white/55 sm:text-sm">{c.blurb}</p>
             </motion.button>
           </motion.li>
         ))}
@@ -419,11 +419,11 @@ function EducationRecordFull() {
     `Activities: ${profile.education.activities}`,
   ];
   return (
-    <div className="space-y-3 sm:space-y-4">
+    <div className="space-y-2.5 sm:space-y-3">
       {lines.map((line) => (
         <p
           key={line}
-          className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm leading-relaxed text-white/90 sm:px-5 sm:text-base"
+          className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-xs leading-relaxed text-white/90 sm:px-4 sm:py-3 sm:text-sm"
         >
           {line}
         </p>
@@ -465,14 +465,14 @@ function StaticAppBody({ app }: { app: AppId }) {
             href={profile.resumePdfUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-2xl bg-gradient-to-r from-orange-500/20 to-rose-600/20 py-3.5 text-center text-sm font-semibold text-white ring-1 ring-white/20 sm:py-4 sm:text-base"
+            className="rounded-2xl bg-gradient-to-r from-orange-500/20 to-rose-600/20 py-2.5 text-center text-xs font-semibold text-white ring-1 ring-white/20 sm:py-3 sm:text-sm"
           >
             Open PDF
           </a>
           <a
             href={profile.resumePdfUrl}
             download="Sarmed-Mahmood-Resume-2026.pdf"
-            className="rounded-2xl border border-white/20 py-3.5 text-center text-sm font-medium text-white/95 sm:py-4 sm:text-base"
+            className="rounded-2xl border border-white/20 py-2.5 text-center text-xs font-medium text-white/95 sm:py-3 sm:text-sm"
           >
             Download copy
           </a>
@@ -485,8 +485,8 @@ function StaticAppBody({ app }: { app: AppId }) {
       <div className="space-y-6">
         {profile.volunteering.map((v) => (
           <div key={v.id} className="space-y-4">
-            <div className="flex items-start gap-3.5 sm:gap-4">
-              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-white/8 bg-slate-900/80 sm:h-14 sm:w-16">
+            <div className="flex items-start gap-3 sm:gap-3.5">
+              <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-white/8 bg-slate-900/80 sm:h-12 sm:w-12">
                 <Image
                   src={v.logoImage}
                   alt={v.logoAlt}
@@ -500,15 +500,15 @@ function StaticAppBody({ app }: { app: AppId }) {
                 <p className="text-[11px] font-semibold uppercase tracking-wider text-white/40">
                   Volunteering
                 </p>
-                <p className="mt-1 text-sm font-medium text-white sm:text-base">
+                <p className="mt-1 text-xs font-medium text-white sm:text-sm">
                   {v.role} — {v.organization}
                 </p>
-                <p className="text-sm text-white/50">
+                <p className="text-xs text-white/50 sm:text-sm">
                   {v.focus} · {v.approxDuration}
                 </p>
               </div>
             </div>
-            <p className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3 text-sm leading-relaxed text-white/90 sm:px-5 sm:text-base">
+            <p className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-xs leading-relaxed text-white/90 sm:px-4 sm:py-3 sm:text-sm">
               {v.storyShort}
             </p>
           </div>
@@ -537,11 +537,11 @@ function StaticAppBody({ app }: { app: AppId }) {
 
   const lines = blocks[app].filter(Boolean);
   return (
-    <div className="space-y-3 sm:space-y-4">
+    <div className="space-y-2.5 sm:space-y-3">
       {lines.map((line) => (
         <p
           key={line}
-          className="rounded-2xl border border-white/10 bg-white/5 px-4 py-3.5 text-sm leading-relaxed text-white/90 sm:px-5 sm:text-base"
+          className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-xs leading-relaxed text-white/90 sm:px-4 sm:py-3 sm:text-sm"
         >
           {line}
         </p>
@@ -550,7 +550,7 @@ function StaticAppBody({ app }: { app: AppId }) {
         <div className="flex flex-col gap-2 pt-2 sm:gap-2.5">
           <a
             href={`mailto:${profile.email}`}
-            className="rounded-2xl bg-white/9 py-3.5 text-center text-sm font-semibold text-white ring-1 ring-white/15 sm:py-4 sm:text-base"
+            className="rounded-2xl bg-white/9 py-2.5 text-center text-xs font-semibold text-white ring-1 ring-white/15 sm:py-3 sm:text-sm"
           >
             Email me
           </a>
@@ -558,7 +558,7 @@ function StaticAppBody({ app }: { app: AppId }) {
             href={profile.links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-2xl border border-white/15 py-3.5 text-center text-sm font-medium text-white sm:py-4 sm:text-base"
+            className="rounded-2xl border border-white/15 py-2.5 text-center text-xs font-medium text-white sm:py-3 sm:text-sm"
           >
             LinkedIn
           </a>
@@ -566,7 +566,7 @@ function StaticAppBody({ app }: { app: AppId }) {
             href={profile.links.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-2xl border border-white/15 py-3.5 text-center text-sm font-medium text-white sm:py-4 sm:text-base"
+            className="rounded-2xl border border-white/15 py-2.5 text-center text-xs font-medium text-white sm:py-3 sm:text-sm"
           >
             GitHub
           </a>
@@ -586,9 +586,9 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
     const isRemote = row.listImage.startsWith("https://");
     const useContain = isRemote || itemId === "cert-linkedin-sec" || itemId === "cert-comptia";
     return (
-      <div className="space-y-4 sm:space-y-5">
-        <div className="flex items-start gap-3.5 sm:gap-4">
-          <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-slate-900/50 sm:h-[4.5rem] sm:w-[4.5rem]">
+      <div className="space-y-3 sm:space-y-4">
+        <div className="flex items-start gap-3 sm:gap-3.5">
+          <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-slate-900/50 sm:h-[4rem] sm:w-[4rem]">
             {useContain ? (
               <Image
                 src={row.listImage}
@@ -610,15 +610,15 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
             )}
           </div>
           <div className="min-w-0">
-            <h2 className="text-lg font-semibold text-white sm:text-xl">{row.listTitle}</h2>
-            <p className="text-sm text-slate-200/90 sm:text-base">{row.listSubtitle}</p>
+            <h2 className="text-base font-semibold text-white sm:text-lg">{row.listTitle}</h2>
+            <p className="text-xs text-slate-200/90 sm:text-sm">{row.listSubtitle}</p>
           </div>
         </div>
         {"detailLines" in row && row.detailLines
           ? row.detailLines.map((line) => (
               <p
                 key={line}
-                className="rounded-2xl border border-white/10 bg-white/5 px-3.5 py-3.5 text-sm leading-relaxed text-white/90 sm:px-4 sm:py-4 sm:text-base"
+                className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-xs leading-relaxed text-white/90 sm:px-3.5 sm:py-3 sm:text-sm"
               >
                 {line}
               </p>
@@ -629,7 +629,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
             href={profile.linkedInLearning[0].credentialUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-2xl bg-white/10 px-4 py-2.5 text-sm font-medium text-white ring-1 ring-white/15"
+            className="inline-block rounded-2xl bg-white/10 px-3 py-2 text-xs font-medium text-white ring-1 ring-white/15 sm:text-sm"
           >
             Open credential
           </a>
@@ -645,10 +645,10 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
         ? (job as { panelImage: string }).panelImage
         : null;
     return (
-      <div className="space-y-4 sm:space-y-5">
-        <div className="flex items-start gap-3.5 sm:gap-4">
+      <div className="space-y-3 sm:space-y-4">
+        <div className="flex items-start gap-3 sm:gap-3.5">
           {hero ? (
-            <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-slate-900/80 sm:h-16 sm:w-16">
+            <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-slate-900/80 sm:h-14 sm:w-14">
               <Image
                 src={hero}
                 alt={`${job.role} — ${job.company}`}
@@ -663,20 +663,20 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
               company={job.company}
               domain={job.logoDomain}
               localLogo={experienceLocalLogo(job)}
-              size={56}
+              size={48}
             />
           )}
           <div>
-            <h2 className="text-lg font-semibold text-white sm:text-xl">{job.role}</h2>
-            <p className="text-sm text-slate-200/90 sm:text-base">{job.company}</p>
-            <p className="text-sm text-white/50 sm:text-base">{job.location}</p>
+            <h2 className="text-base font-semibold text-white sm:text-lg">{job.role}</h2>
+            <p className="text-xs text-slate-200/90 sm:text-sm">{job.company}</p>
+            <p className="text-xs text-white/50 sm:text-sm">{job.location}</p>
           </div>
         </div>
-        <ul className="space-y-2.5 sm:space-y-3">
+        <ul className="space-y-2 sm:space-y-2.5">
           {job.bullets.map((b) => (
             <li
               key={b}
-              className="rounded-2xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-white/90 sm:px-4 sm:py-3 sm:text-base"
+              className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/90 sm:px-3.5 sm:py-2.5 sm:text-sm"
             >
               {b}
             </li>
@@ -705,17 +705,17 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
           </div>
         ) : null}
         {p.panelSummary ? (
-          <p className="text-sm leading-relaxed text-slate-200/90 sm:text-base">
+          <p className="text-xs leading-relaxed text-slate-200/90 sm:text-sm">
             {p.panelSummary}
           </p>
         ) : null}
         <div>
-          <h2 className="text-lg font-semibold text-white sm:text-xl">{p.name}</h2>
+          <h2 className="text-base font-semibold text-white sm:text-lg">{p.name}</h2>
           {"accolade" in p ? (
-            <p className="text-sm font-medium text-slate-200/90 sm:text-base">{p.accolade}</p>
+            <p className="text-xs font-medium text-slate-200/90 sm:text-sm">{p.accolade}</p>
           ) : null}
-          <p className="text-sm text-slate-200/80 sm:text-base">{p.stack.join(" · ")}</p>
-          <p className="text-sm text-white/40 sm:text-base">{p.date}</p>
+          <p className="text-xs text-slate-200/80 sm:text-sm">{p.stack.join(" · ")}</p>
+          <p className="text-xs text-white/40 sm:text-sm">{p.date}</p>
         </div>
         {("liveUrl" in p && p.liveUrl) ||
         ("githubUrl" in p && p.githubUrl) ? (
@@ -725,7 +725,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
                 href={p.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-2xl border border-white/20 bg-white/8 py-2.5 text-sm font-medium text-white/95 transition hover:bg-white/12 sm:py-3"
+                className="inline-flex w-full items-center justify-center rounded-2xl border border-white/20 bg-white/8 py-2 text-xs font-medium text-white/95 transition hover:bg-white/12 sm:py-2.5 sm:text-sm"
               >
                 {"liveLabel" in p && p.liveLabel ? p.liveLabel : "Live site"}
               </a>
@@ -735,18 +735,18 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
                 href={p.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-2xl border border-white/20 bg-white/8 py-2.5 text-sm font-medium text-white/95 transition hover:bg-white/12 sm:py-3"
+                className="inline-flex w-full items-center justify-center rounded-2xl border border-white/20 bg-white/8 py-2 text-xs font-medium text-white/95 transition hover:bg-white/12 sm:py-2.5 sm:text-sm"
               >
                 {"githubLabel" in p && p.githubLabel ? p.githubLabel : "GitHub"}
               </a>
             ) : null}
           </div>
         ) : null}
-        <ul className="space-y-2.5">
+        <ul className="space-y-2">
           {p.bullets.map((b) => (
             <li
               key={b}
-              className="rounded-2xl border border-white/10 bg-white/5 px-3.5 py-2.5 text-sm text-white/90 sm:px-4 sm:py-3 sm:text-base"
+              className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/90 sm:px-3.5 sm:py-2.5 sm:text-sm"
             >
               {b}
             </li>
@@ -778,10 +778,10 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
         </div>
       ) : null;
     return (
-      <div className="space-y-3 sm:space-y-4">
+      <div className="space-y-2.5 sm:space-y-3">
         {hero}
-        <div className="flex items-start gap-3.5 sm:gap-4">
-          <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-slate-900/80 sm:h-16 sm:w-16">
+        <div className="flex items-start gap-3 sm:gap-3.5">
+          <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-slate-900/80 sm:h-14 sm:w-14">
             <Image
               src={l.listImage}
               alt={l.listImageAlt}
@@ -792,11 +792,11 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
             />
           </div>
           <div>
-            <h2 className="text-lg font-semibold text-white sm:text-xl">{l.org}</h2>
-            <p className="text-sm text-slate-200/90 sm:text-base">{l.role}</p>
+            <h2 className="text-base font-semibold text-white sm:text-lg">{l.org}</h2>
+            <p className="text-xs text-slate-200/90 sm:text-sm">{l.role}</p>
           </div>
         </div>
-        <p className="rounded-2xl border border-white/10 bg-white/5 px-3.5 py-3.5 text-sm leading-relaxed text-white/90 sm:px-4 sm:py-4 sm:text-base">
+        <p className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-xs leading-relaxed text-white/90 sm:px-3.5 sm:py-3 sm:text-sm">
           {l.detail}
         </p>
       </div>
@@ -807,8 +807,8 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
     if (!cat) return null;
     const tags = getSkillCategoryItems(itemId as SkillCategoryId);
     return (
-      <div className="space-y-3 sm:space-y-4">
-        <p className="text-sm text-white/55 sm:text-base">{cat.blurb}</p>
+      <div className="space-y-2.5 sm:space-y-3">
+        <p className="text-xs text-white/55 sm:text-sm">{cat.blurb}</p>
         <ul className="flex flex-wrap gap-2 sm:gap-2.5">
           {tags.map((t) => (
             <TechPill key={t} label={t} />

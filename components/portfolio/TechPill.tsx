@@ -9,9 +9,9 @@ export function TechPill({ label }: { label: string }) {
   const [hide, setHide] = useState(!url);
 
   return (
-    <li className="flex max-w-full items-center gap-2 rounded-xl border border-white/10 bg-white/5 px-2.5 py-2 text-sm text-white/90 sm:px-3.5 sm:py-2 sm:text-base">
+    <li className="flex max-w-full items-center gap-1.5 rounded-xl border border-white/10 bg-white/5 px-2 py-1.5 text-xs text-white/90 sm:px-2.5 sm:py-1.5 sm:text-sm">
       {!hide && url ? (
-        <span className="relative h-5 w-5 shrink-0 sm:h-6 sm:w-6">
+        <span className="relative h-4 w-4 shrink-0 sm:h-5 sm:w-5">
           <Image
             src={url}
             alt=""
