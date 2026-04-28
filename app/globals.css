@@ -119,13 +119,24 @@ html {
 }
 
 /**
- * Phone mockup size — single source in plain CSS so `next dev` and Vercel
- * production resolve the same width/height (avoids arbitrary-value differences).
- * Aspect ~19.2:9 (width = height * 10.35/19.2).
+ * Phone mockup size — bezel stays large (original intent). Plain CSS keeps
+ * dev/prod identical. Aspect ~19.2:9 (width = height * 10.35/19.2).
  */
 .portfolio-device-shell {
   box-sizing: border-box;
-  --pf-device-h: min(70dvh, 700px);
+  --pf-device-h: min(86dvh, 860px);
   width: min(99vw, calc(var(--pf-device-h) * 10.35 / 19.2));
   height: var(--pf-device-h);
+}
+
+/**
+ * Shrinks only the on-screen UI (chips, apps, lists). `zoom` reflows layout in
+ * Chromium/WebKit so more fits with less scrolling; the device bezel stays large.
+ */
+.portfolio-phone-screen-ui {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  zoom: 0.88;
 }

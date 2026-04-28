@@ -42,8 +42,9 @@ export function PhoneScreens({
   activeChip: TopicChipId | null;
 }) {
   return (
-    <div className="flex h-full min-h-0 w-full min-w-0 flex-1 flex-col bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
-      <div className="shrink-0 border-b border-white/6 bg-slate-950/40 px-2.5 py-1.5">
+    <div className="flex h-full min-h-0 w-full min-w-0 flex-1 flex-col overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
+      <div className="portfolio-phone-screen-ui bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
+        <div className="shrink-0 border-b border-white/6 bg-slate-950/40 px-2.5 py-1.5">
         <p className="px-0.5 pb-1 text-[10px] font-medium uppercase tracking-wider text-slate-500">
           Scroll through these tiles to learn more!
         </p>
@@ -69,9 +70,9 @@ export function PhoneScreens({
             );
           })}
         </div>
-      </div>
+        </div>
 
-      <div className="relative min-h-0 flex-1 overflow-hidden">
+        <div className="relative min-h-0 flex-1 overflow-hidden">
         <AnimatePresence mode="popLayout" initial={false}>
           {screen.view === "home" ? (
             <motion.div
@@ -187,6 +188,7 @@ export function PhoneScreens({
             </motion.div>
           )}
         </AnimatePresence>
+        </div>
       </div>
     </div>
   );
