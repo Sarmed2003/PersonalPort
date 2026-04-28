@@ -71,7 +71,7 @@ export function PortfolioShell({
           compactTop ? "py-2 md:py-3" : "py-4 md:py-8"
         }`}
       >
-        <div className="flex w-full min-h-0 shrink-0 items-stretch justify-center md:w-[53%] md:max-w-[min(100%,640px)] md:justify-end md:pr-1 md:pl-0 lg:pr-4">
+        <div className="flex w-full min-h-0 shrink-0 items-stretch justify-center md:w-[48%] md:max-w-[min(100%,600px)] md:justify-end md:pr-1 md:pl-0 lg:pr-4">
           <div className="w-full">
             <DeviceFrame statusBar={<StatusBar />}>
               <PhoneScreens

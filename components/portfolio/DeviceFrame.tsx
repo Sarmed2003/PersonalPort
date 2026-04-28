@@ -15,8 +15,7 @@ export function DeviceFrame({
   return (
     <div className="relative mx-auto flex shrink-0 select-none justify-center">
       <div
-        className="relative w-[min(99vw,calc(min(74dvh,740px)*10.35/19.2))] rounded-[2.4rem] bg-gradient-to-b from-zinc-800 via-zinc-900 to-zinc-950 p-[9px] shadow-[0_28px_80px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/10"
-        style={{ height: "min(74dvh, 740px)" }}
+        className="portfolio-device-shell relative rounded-[2.4rem] bg-gradient-to-b from-zinc-800 via-zinc-900 to-zinc-950 p-[9px] shadow-[0_28px_80px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.1)] ring-1 ring-white/10"
       >
         <div className="pointer-events-none absolute -left-[2px] top-24 h-14 w-[3px] rounded-l bg-zinc-700/90" />
         <div className="pointer-events-none absolute -left-[2px] top-40 h-9 w-[3px] rounded-l bg-zinc-700/90" />

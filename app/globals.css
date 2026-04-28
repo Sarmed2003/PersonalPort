@@ -117,3 +117,15 @@ html {
 .ua-themed-scrollbar::-webkit-scrollbar-thumb:hover {
   background: rgba(51, 65, 85, 0.9);
 }
+
+/**
+ * Phone mockup size — single source in plain CSS so `next dev` and Vercel
+ * production resolve the same width/height (avoids arbitrary-value differences).
+ * Aspect ~19.2:9 (width = height * 10.35/19.2).
+ */
+.portfolio-device-shell {
+  box-sizing: border-box;
+  --pf-device-h: min(70dvh, 700px);
+  width: min(99vw, calc(var(--pf-device-h) * 10.35 / 19.2));
+  height: var(--pf-device-h);
+}
