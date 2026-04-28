@@ -91,7 +91,7 @@ export function PhoneScreens({
                 </p>
               </div>
               <motion.div
-                className="grid grid-cols-3 gap-x-2.5 gap-y-4 sm:gap-x-3 sm:gap-y-5"
+                className="grid grid-cols-3 gap-x-3 gap-y-[1.125rem] sm:gap-x-3.5 sm:gap-y-6"
                 initial="hidden"
                 animate="show"
                 variants={{
@@ -116,16 +116,16 @@ export function PhoneScreens({
                       whileTap={{ scale: 0.94 }}
                       whileHover={{ scale: 1.02 }}
                       transition={sp}
-                      className="group flex flex-col items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded-xl"
+                      className="group flex flex-col items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded-xl"
                     >
                       <div
-                        className={`flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br text-[1.05rem] shadow-md ring-1 ring-white/10 sm:h-12 sm:w-12 sm:text-[1.35rem] ${app.tint}`}
+                        className={`flex h-11 w-11 items-center justify-center rounded-2xl bg-gradient-to-br text-[1.125rem] shadow-md ring-1 ring-white/10 sm:h-14 sm:w-14 sm:text-[1.45rem] ${app.tint}`}
                       >
                         <span className="drop-shadow-sm" aria-hidden>
                           {app.icon}
                         </span>
                       </div>
-                      <span className="max-w-[5.5rem] text-center text-[0.72rem] font-medium leading-snug text-white/90 sm:max-w-[6.75rem] sm:text-[0.9rem]">
+                      <span className="max-w-[6rem] text-center text-[0.78rem] font-medium leading-snug text-white/90 sm:max-w-[7rem] sm:text-[0.95rem]">
                         {app.label}
                       </span>
                     </motion.button>
