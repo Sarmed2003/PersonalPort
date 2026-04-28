@@ -42,9 +42,8 @@ export function PhoneScreens({
   activeChip: TopicChipId | null;
 }) {
   return (
-    <div className="flex h-full min-h-0 w-full min-w-0 flex-1 flex-col overflow-hidden bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
-      <div className="portfolio-phone-screen-ui bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
-        <div className="shrink-0 border-b border-white/6 bg-slate-950/40 px-2.5 py-1.5">
+    <div className="flex h-full min-h-0 w-full min-w-0 flex-1 flex-col bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
+      <div className="shrink-0 border-b border-white/6 bg-slate-950/40 px-2.5 py-1.5">
         <p className="px-0.5 pb-1 text-[10px] font-medium uppercase tracking-wider text-slate-500">
           Scroll through these tiles to learn more!
         </p>
@@ -70,9 +69,9 @@ export function PhoneScreens({
             );
           })}
         </div>
-        </div>
+      </div>
 
-        <div className="relative min-h-0 flex-1 overflow-hidden">
+      <div className="relative min-h-0 flex-1 overflow-hidden">
         <AnimatePresence mode="popLayout" initial={false}>
           {screen.view === "home" ? (
             <motion.div
@@ -188,7 +187,6 @@ export function PhoneScreens({
             </motion.div>
           )}
         </AnimatePresence>
-        </div>
       </div>
     </div>
   );
@@ -205,8 +203,6 @@ function AppList({
     return (
       <ul className="space-y-3">
         {profile.experience.map((job, idx) => {
-          const thumb =
-            "panelImage" in job && typeof job.panelImage === "string" ? job.panelImage : null;
           return (
             <motion.li
               key={job.id}
@@ -222,25 +218,12 @@ function AppList({
                 transition={sp}
                 className="flex w-full items-center gap-3.5 rounded-2xl border border-white/10 bg-white/5 px-3.5 py-3.5 text-left transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20 sm:px-4 sm:py-4"
               >
-                {thumb ? (
-                  <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-lg border border-white/8 bg-slate-900/80 sm:h-14 sm:w-16">
-                    <Image
-                      src={thumb}
-                      alt=""
-                      width={64}
-                      height={64}
-                      unoptimized
-                      className="h-full w-full object-contain p-1.5"
-                    />
-                  </div>
-                ) : (
-                  <CompanyMark
-                    company={job.company}
-                    domain={job.logoDomain}
-                    localLogo={experienceLocalLogo(job)}
-                    size={48}
-                  />
-                )}
+                <CompanyMark
+                  company={job.company}
+                  domain={job.logoDomain}
+                  localLogo={experienceLocalLogo(job)}
+                  size={48}
+                />
                 <div className="min-w-0 flex-1">
                   <p className="text-base font-semibold text-white sm:text-[17px]">
                     {job.company}
@@ -250,7 +233,7 @@ function AppList({
               </motion.button>
             </motion.li>
           );
-        }        )}
+        })}
       </ul>
     );
   }
@@ -657,15 +640,32 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
   if (app === "experience") {
     const job = profile.experience.find((e) => e.id === itemId);
     if (!job) return null;
+    const hero =
+      "panelImage" in job && typeof (job as { panelImage?: string }).panelImage === "string"
+        ? (job as { panelImage: string }).panelImage
+        : null;
     return (
       <div className="space-y-4 sm:space-y-5">
         <div className="flex items-start gap-3.5 sm:gap-4">
-          <CompanyMark
-            company={job.company}
-            domain={job.logoDomain}
-            localLogo={experienceLocalLogo(job)}
-            size={56}
-          />
+          {hero ? (
+            <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-xl border border-white/10 bg-slate-900/80 sm:h-16 sm:w-16">
+              <Image
+                src={hero}
+                alt={`${job.role} — ${job.company}`}
+                width={64}
+                height={64}
+                unoptimized
+                className="h-full w-full object-cover"
+              />
+            </div>
+          ) : (
+            <CompanyMark
+              company={job.company}
+              domain={job.logoDomain}
+              localLogo={experienceLocalLogo(job)}
+              size={56}
+            />
+          )}
           <div>
             <h2 className="text-lg font-semibold text-white sm:text-xl">{job.role}</h2>
             <p className="text-sm text-slate-200/90 sm:text-base">{job.company}</p>

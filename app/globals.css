@@ -129,14 +129,3 @@ html {
   height: var(--pf-device-h);
 }
 
-/**
- * Shrinks only the on-screen UI (chips, apps, lists). `zoom` reflows layout in
- * Chromium/WebKit so more fits with less scrolling; the device bezel stays large.
- */
-.portfolio-phone-screen-ui {
-  flex: 1;
-  min-height: 0;
-  display: flex;
-  flex-direction: column;
-  zoom: 0.88;
-}

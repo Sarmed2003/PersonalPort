@@ -163,6 +163,10 @@ function panelForItem(app: AppId, itemId: string): PanelState {
   if (app === "experience") {
     const job = profile.experience.find((e) => e.id === (itemId as ExperienceId));
     if (!job) return { kind: "welcome" };
+    const panelImg =
+      "panelImage" in job && typeof (job as { panelImage?: string }).panelImage === "string"
+        ? (job as { panelImage: string }).panelImage
+        : undefined;
     return {
       kind: "content",
       title: job.role,
@@ -170,6 +174,8 @@ function panelForItem(app: AppId, itemId: string): PanelState {
       badge: job.company,
       body: [...job.bullets],
       footnote: job.location,
+      imageSrc: panelImg,
+      imageAlt: `${job.role} — ${job.company}`,
     };
   }
   if (app === "projects") {
