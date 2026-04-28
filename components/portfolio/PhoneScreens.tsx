@@ -43,11 +43,11 @@ export function PhoneScreens({
 }) {
   return (
     <div className="flex h-full min-h-0 w-full min-w-0 flex-1 flex-col bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
-      <div className="shrink-0 border-b border-white/6 bg-slate-950/40 px-3 py-2">
-        <p className="px-1 pb-1.5 text-[11px] font-medium uppercase tracking-wider text-slate-500">
+      <div className="shrink-0 border-b border-white/6 bg-slate-950/40 px-2.5 py-1.5">
+        <p className="px-0.5 pb-1 text-[10px] font-medium uppercase tracking-wider text-slate-500">
           Scroll through these tiles to learn more!
         </p>
-        <div className="flex flex-wrap gap-2.5 sm:flex-nowrap sm:overflow-x-auto sm:pb-1.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:[&::-webkit-scrollbar]:hidden">
+        <div className="flex flex-wrap gap-2 sm:flex-nowrap sm:overflow-x-auto sm:pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:[&::-webkit-scrollbar]:hidden">
           {topicChips.map((c) => {
             const on = activeChip === c.id;
             return (
@@ -58,7 +58,7 @@ export function PhoneScreens({
                 whileTap={{ scale: 0.96 }}
                 whileHover={{ scale: 1.02 }}
                 transition={sp}
-                className={`shrink-0 rounded-full px-3.5 py-2 text-sm font-medium transition sm:px-4 sm:py-2.5 sm:text-[0.9rem] ${
+                className={`shrink-0 rounded-full px-2.5 py-1.5 text-xs font-medium transition sm:px-3 sm:py-2 sm:text-[13px] ${
                   on
                     ? "bg-white/12 text-white ring-1 ring-white/18"
                     : "bg-white/6 text-white/90 hover:bg-white/10"
@@ -80,18 +80,18 @@ export function PhoneScreens({
               animate={screenOn}
               exit={{ opacity: 0, x: -18 }}
               transition={sp}
-              className="ua-themed-scrollbar absolute inset-0 overflow-y-auto overscroll-contain px-4 pb-8 pt-9 sm:pt-10"
+              className="ua-themed-scrollbar absolute inset-0 overflow-y-auto overscroll-contain px-3.5 pb-7 pt-7 sm:pt-8"
             >
-              <div className="mb-7 text-center sm:mb-8">
-                <p className="text-base font-semibold text-white sm:text-lg">
+              <div className="mb-5 text-center sm:mb-6">
+                <p className="text-sm font-semibold text-white sm:text-base">
                   {profile.name.split(" ")[0]}&apos;s portfolio
                 </p>
-                <p className="mt-1 text-sm text-white/50 sm:text-base">
+                <p className="mt-0.5 text-xs text-white/50 sm:text-sm">
                   Scroll and tap an app
                 </p>
               </div>
               <motion.div
-                className="grid grid-cols-3 gap-x-3 gap-y-5 sm:gap-x-4 sm:gap-y-6"
+                className="grid grid-cols-3 gap-x-2.5 gap-y-4 sm:gap-x-3 sm:gap-y-5"
                 initial="hidden"
                 animate="show"
                 variants={{
@@ -116,16 +116,16 @@ export function PhoneScreens({
                       whileTap={{ scale: 0.94 }}
                       whileHover={{ scale: 1.02 }}
                       transition={sp}
-                      className="group flex flex-col items-center gap-2.5 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded-xl"
+                      className="group flex flex-col items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 rounded-xl"
                     >
                       <div
-                        className={`flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-to-br text-[1.2rem] shadow-md ring-1 ring-white/10 sm:h-14 sm:w-14 sm:text-2xl ${app.tint}`}
+                        className={`flex h-10 w-10 items-center justify-center rounded-2xl bg-gradient-to-br text-[1.05rem] shadow-md ring-1 ring-white/10 sm:h-12 sm:w-12 sm:text-[1.35rem] ${app.tint}`}
                       >
                         <span className="drop-shadow-sm" aria-hidden>
                           {app.icon}
                         </span>
                       </div>
-                      <span className="max-w-[6rem] text-center text-[0.8rem] font-medium leading-snug text-white/90 sm:max-w-[7.25rem] sm:text-base">
+                      <span className="max-w-[5.5rem] text-center text-[0.72rem] font-medium leading-snug text-white/90 sm:max-w-[6.75rem] sm:text-[0.9rem]">
                         {app.label}
                       </span>
                     </motion.button>

@@ -221,9 +221,9 @@ export const profile = {
       location: "Akron, OH",
       start: "2025-08",
       end: "2026-01",
-      panelImage: "/leadership/ua-robotics.png",
+      panelImage: "/leadership/melodee-lunabotics.png",
       bullets: [
-        "Software team member on BRANDEE (NASA Lunabotics): embedded C++ in ROS, autonomous navigation control routines, and autonomy pipeline work across algorithms, hardware interfacing, and communication with the electrical sub-team.",
+        "Software team member on MELODEE (NASA Lunabotics): embedded C++ in ROS, autonomous navigation control routines, and autonomy pipeline work across algorithms, hardware interfacing, and communication with the electrical sub-team.",
         "Build, integration, and competition season including the annual NASA-hosted event in Florida (Aug 2025 – Jan 2026).",
       ],
     },
@@ -359,16 +359,16 @@ export const profile = {
       liveLabel: "ZipsMarket live",
     },
     {
-      id: "brandee-lunabotics",
-      name: "BRANDEE — NASA Lunabotics (UA Robotics)",
+      id: "melodee-lunabotics",
+      name: "MELODEE — NASA Lunabotics (UA Robotics)",
       date: "2025-08",
-      panelImage: "/leadership/brandee-lunabotics.png",
+      panelImage: "/leadership/melodee-lunabotics.png",
       panelSummary:
-        "Embedded C++ and ROS on UA's NASA Lunabotics robot BRANDEE: autonomy pipeline, navigation routines, and hardware–software integration for competition.",
+        "Embedded C++ and ROS on UA's NASA Lunabotics robot MELODEE: autonomy pipeline, navigation routines, and hardware–software integration for competition.",
       accolade: "NASA Lunabotics · software sub-team",
       stack: ["C++", "ROS", "Embedded systems", "Python", "Electrical integration"],
       bullets: [
-        "Software team member on BRANDEE: ROS-based autonomous control, navigation routines, and autonomy pipeline work with algorithms, hardware interfacing, and protocols alongside the electrical sub-team.",
+        "Software team member on MELODEE: ROS-based autonomous control, navigation routines, and autonomy pipeline work with algorithms, hardware interfacing, and protocols alongside the electrical sub-team.",
         "Competition build and integration including the annual NASA-hosted Lunabotics event in Florida (Aug 2025 – Jan 2026).",
       ],
     },
@@ -408,10 +408,10 @@ export const profile = {
       end: "2026-01",
       listImage: "/leadership/ua-robotics.png" as const,
       listImageAlt: "UA NASA Robotics",
-      detailPanelImage: "/leadership/brandee-lunabotics.png" as const,
-      detailPanelImageAlt: "BRANDEE — NASA Lunabotics robot",
+      detailPanelImage: "/leadership/melodee-lunabotics.png" as const,
+      detailPanelImageAlt: "MELODEE — NASA Lunabotics robot",
       detail:
-        "As a software team member on BRANDEE — UA's NASA Lunabotics competition robot — I contributed to embedded C++ development within the ROS (Robot Operating System) framework, working on autonomous control routines responsible for navigation. I contributed to BRANDEE's autonomy pipeline across algorithm design, hardware interfacing, and communication protocols between software and the electrical sub-team. Experience working alongside such a talented group of friends gave me a systems-thinking perspective I use in my work.",
+        "As a software team member on MELODEE — UA's NASA Lunabotics competition robot — I contributed to embedded C++ development within the ROS (Robot Operating System) framework, working on autonomous control routines responsible for navigation. I contributed to MELODEE's autonomy pipeline across algorithm design, hardware interfacing, and communication protocols between software and the electrical sub-team. Experience working alongside such a talented group of friends gave me a systems-thinking perspective I use in my work.",
     },
   ],
 } as const;
