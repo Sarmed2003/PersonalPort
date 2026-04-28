@@ -72,7 +72,7 @@ export function PortfolioShell({
         }`}
       >
         <div className="flex w-full min-h-0 shrink-0 items-stretch justify-center md:w-[57%] md:max-w-[min(100%,700px)] md:justify-end md:pr-1 md:pl-0 lg:pr-4">
-          <div className="w-full">
+          <div className="w-full md:translate-x-2 lg:translate-x-4">
             <DeviceFrame statusBar={<StatusBar />}>
               <PhoneScreens
                 screen={screen}

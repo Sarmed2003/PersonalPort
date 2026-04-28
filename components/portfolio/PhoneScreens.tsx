@@ -43,11 +43,11 @@ export function PhoneScreens({
 }) {
   return (
     <div className="flex h-full min-h-0 w-full min-w-0 flex-1 flex-col bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
-      <div className="shrink-0 border-b border-white/6 bg-slate-950/40 px-2 py-1.5">
-        <p className="px-0.5 pb-0.5 text-[9px] font-medium uppercase tracking-wider text-slate-500">
+      <div className="shrink-0 border-b border-white/6 bg-slate-950/40 px-1.5 py-1">
+        <p className="px-0.5 pb-0.5 text-[8px] font-medium uppercase tracking-wider text-slate-500">
           Scroll through these tiles to learn more!
         </p>
-        <div className="flex flex-wrap gap-1.5 sm:flex-nowrap sm:overflow-x-auto sm:pb-1 [-ms-overflow-style:none] [scrollbar-width:none] sm:[&::-webkit-scrollbar]:hidden">
+        <div className="flex flex-wrap gap-1 sm:flex-nowrap sm:overflow-x-auto sm:pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:[&::-webkit-scrollbar]:hidden">
           {topicChips.map((c) => {
             const on = activeChip === c.id;
             return (
@@ -58,7 +58,7 @@ export function PhoneScreens({
                 whileTap={{ scale: 0.96 }}
                 whileHover={{ scale: 1.02 }}
                 transition={sp}
-                className={`shrink-0 rounded-full px-2 py-1 text-[11px] font-medium transition sm:px-2.5 sm:py-1.5 sm:text-xs ${
+                className={`shrink-0 rounded-full px-1.5 py-0.5 text-[10px] font-medium transition sm:px-2 sm:py-1 sm:text-[11px] ${
                   on
                     ? "bg-white/12 text-white ring-1 ring-white/18"
                     : "bg-white/6 text-white/90 hover:bg-white/10"
@@ -216,7 +216,7 @@ function AppList({
                 whileTap={{ scale: 0.98 }}
                 whileHover={{ scale: 1.01 }}
                 transition={sp}
-                className="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-left transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20 sm:px-3.5 sm:py-3.5"
+                className="flex w-full items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 px-2.5 py-2 text-left transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20 sm:gap-3 sm:px-3 sm:py-2.5"
               >
                 <CompanyMark
                   company={job.company}
@@ -257,7 +257,7 @@ function AppList({
                 whileTap={{ scale: 0.98 }}
                 whileHover={{ scale: 1.01 }}
                 transition={sp}
-                className="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-left transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20 sm:px-3.5 sm:py-3.5"
+                className="flex w-full items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 px-2.5 py-2 text-left transition hover:bg-white/10 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/20 sm:gap-3 sm:px-3 sm:py-2.5"
               >
                 <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-white/8 bg-slate-900/80 sm:h-12 sm:w-12">
                   {useContain ? (
@@ -313,7 +313,7 @@ function AppList({
                 onClick={() => onOpenItem("projects", p.id)}
                 whileTap={{ scale: 0.98 }}
                 whileHover={{ scale: 1.01 }}
-                className="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-left sm:gap-3 sm:px-3.5 sm:py-3"
+                className="flex w-full items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 px-2.5 py-2 text-left sm:gap-3 sm:px-3 sm:py-2.5"
               >
                 {thumb ? (
                   <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-white/8 bg-slate-900/80 sm:h-12 sm:w-12">
@@ -358,7 +358,7 @@ function AppList({
               type="button"
               onClick={() => onOpenItem("leadership", l.id)}
               whileTap={{ scale: 0.98 }}
-              className="flex w-full items-center gap-3 rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-left sm:px-3.5 sm:py-3.5"
+              className="flex w-full items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 px-2.5 py-2 text-left sm:gap-3 sm:px-3 sm:py-2.5"
             >
               <div className="relative h-10 w-10 shrink-0 overflow-hidden rounded-lg border border-white/8 bg-slate-900/80 sm:h-12 sm:w-12">
                 <Image
@@ -394,7 +394,7 @@ function AppList({
               type="button"
               onClick={() => onOpenItem("skills", c.id)}
               whileTap={{ scale: 0.98 }}
-              className="w-full rounded-2xl border border-white/10 bg-white/5 px-3 py-3 text-left sm:px-3.5 sm:py-3.5"
+              className="w-full rounded-xl border border-white/10 bg-white/5 px-2.5 py-2 text-left sm:px-3 sm:py-2.5"
             >
               <p className="text-sm font-semibold text-white sm:text-[15px]">
                 {c.shortLabel}
@@ -419,11 +419,11 @@ function EducationRecordFull() {
     `Activities: ${profile.education.activities}`,
   ];
   return (
-    <div className="space-y-2.5 sm:space-y-3">
+    <div className="space-y-2 sm:space-y-2.5">
       {lines.map((line) => (
         <p
           key={line}
-          className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-xs leading-relaxed text-white/90 sm:px-4 sm:py-3 sm:text-sm"
+          className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-xs"
         >
           {line}
         </p>
@@ -440,7 +440,7 @@ function StaticAppBody({ app }: { app: AppId }) {
           href={profile.resumePdfUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="group block overflow-hidden rounded-2xl border border-orange-400/25 bg-slate-950/50 ring-1 ring-orange-400/15"
+          className="group block overflow-hidden rounded-xl border border-orange-400/25 bg-slate-950/50 ring-1 ring-orange-400/15"
           aria-label="Open résumé PDF in a new tab (full preview) "
         >
           <div className="relative w-full">
@@ -465,14 +465,14 @@ function StaticAppBody({ app }: { app: AppId }) {
             href={profile.resumePdfUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-2xl bg-gradient-to-r from-orange-500/20 to-rose-600/20 py-2.5 text-center text-xs font-semibold text-white ring-1 ring-white/20 sm:py-3 sm:text-sm"
+            className="rounded-xl bg-gradient-to-r from-orange-500/20 to-rose-600/20 py-1.5 text-center text-[11px] font-semibold text-white ring-1 ring-white/20 sm:py-2 sm:text-xs"
           >
             Open PDF
           </a>
           <a
             href={profile.resumePdfUrl}
             download="Sarmed-Mahmood-Resume-2026.pdf"
-            className="rounded-2xl border border-white/20 py-2.5 text-center text-xs font-medium text-white/95 sm:py-3 sm:text-sm"
+            className="rounded-xl border border-white/20 py-1.5 text-center text-[11px] font-medium text-white/95 sm:py-2 sm:text-xs"
           >
             Download copy
           </a>
@@ -508,7 +508,7 @@ function StaticAppBody({ app }: { app: AppId }) {
                 </p>
               </div>
             </div>
-            <p className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-xs leading-relaxed text-white/90 sm:px-4 sm:py-3 sm:text-sm">
+            <p className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-xs">
               {v.storyShort}
             </p>
           </div>
@@ -537,11 +537,11 @@ function StaticAppBody({ app }: { app: AppId }) {
 
   const lines = blocks[app].filter(Boolean);
   return (
-    <div className="space-y-2.5 sm:space-y-3">
+    <div className="space-y-2 sm:space-y-2.5">
       {lines.map((line) => (
         <p
           key={line}
-          className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-xs leading-relaxed text-white/90 sm:px-4 sm:py-3 sm:text-sm"
+          className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-xs"
         >
           {line}
         </p>
@@ -550,7 +550,7 @@ function StaticAppBody({ app }: { app: AppId }) {
         <div className="flex flex-col gap-2 pt-2 sm:gap-2.5">
           <a
             href={`mailto:${profile.email}`}
-            className="rounded-2xl bg-white/9 py-2.5 text-center text-xs font-semibold text-white ring-1 ring-white/15 sm:py-3 sm:text-sm"
+            className="rounded-xl bg-white/9 py-1.5 text-center text-[11px] font-semibold text-white ring-1 ring-white/15 sm:py-2 sm:text-xs"
           >
             Email me
           </a>
@@ -558,7 +558,7 @@ function StaticAppBody({ app }: { app: AppId }) {
             href={profile.links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-2xl border border-white/15 py-2.5 text-center text-xs font-medium text-white sm:py-3 sm:text-sm"
+            className="rounded-xl border border-white/15 py-1.5 text-center text-[11px] font-medium text-white sm:py-2 sm:text-xs"
           >
             LinkedIn
           </a>
@@ -566,7 +566,7 @@ function StaticAppBody({ app }: { app: AppId }) {
             href={profile.links.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-2xl border border-white/15 py-2.5 text-center text-xs font-medium text-white sm:py-3 sm:text-sm"
+            className="rounded-xl border border-white/15 py-1.5 text-center text-[11px] font-medium text-white sm:py-2 sm:text-xs"
           >
             GitHub
           </a>
@@ -618,7 +618,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
           ? row.detailLines.map((line) => (
               <p
                 key={line}
-                className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-xs leading-relaxed text-white/90 sm:px-3.5 sm:py-3 sm:text-sm"
+                className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-xs"
               >
                 {line}
               </p>
@@ -629,7 +629,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
             href={profile.linkedInLearning[0].credentialUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-2xl bg-white/10 px-3 py-2 text-xs font-medium text-white ring-1 ring-white/15 sm:text-sm"
+            className="inline-block rounded-lg bg-white/10 px-2 py-1 text-[11px] font-medium text-white ring-1 ring-white/15 sm:px-2.5 sm:py-1.5 sm:text-xs"
           >
             Open credential
           </a>
@@ -676,7 +676,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
           {job.bullets.map((b) => (
             <li
               key={b}
-              className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/90 sm:px-3.5 sm:py-2.5 sm:text-sm"
+              className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-xs"
             >
               {b}
             </li>
@@ -691,7 +691,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
     return (
       <div className="space-y-3 sm:space-y-4">
         {p.panelImage ? (
-          <div className="overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70">
+          <div className="overflow-hidden rounded-xl border border-white/10 bg-slate-950/70">
             <div className="relative aspect-[16/9] w-full">
               <Image
                 src={p.panelImage}
@@ -725,7 +725,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
                 href={p.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-2xl border border-white/20 bg-white/8 py-2 text-xs font-medium text-white/95 transition hover:bg-white/12 sm:py-2.5 sm:text-sm"
+                className="inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/8 py-1.5 text-[11px] font-medium text-white/95 transition hover:bg-white/12 sm:py-2 sm:text-xs"
               >
                 {"liveLabel" in p && p.liveLabel ? p.liveLabel : "Live site"}
               </a>
@@ -735,7 +735,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
                 href={p.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-2xl border border-white/20 bg-white/8 py-2 text-xs font-medium text-white/95 transition hover:bg-white/12 sm:py-2.5 sm:text-sm"
+                className="inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/8 py-1.5 text-[11px] font-medium text-white/95 transition hover:bg-white/12 sm:py-2 sm:text-xs"
               >
                 {"githubLabel" in p && p.githubLabel ? p.githubLabel : "GitHub"}
               </a>
@@ -746,7 +746,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
           {p.bullets.map((b) => (
             <li
               key={b}
-              className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2 text-xs text-white/90 sm:px-3.5 sm:py-2.5 sm:text-sm"
+              className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-xs"
             >
               {b}
             </li>
@@ -760,7 +760,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
     if (!l) return null;
     const hero =
       "detailPanelImage" in l && l.detailPanelImage ? (
-        <div className="overflow-hidden rounded-2xl border border-white/10 bg-slate-950/70">
+        <div className="overflow-hidden rounded-xl border border-white/10 bg-slate-950/70">
           <div className="relative aspect-[16/9] w-full">
             <Image
               src={l.detailPanelImage}
@@ -796,7 +796,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
             <p className="text-xs text-slate-200/90 sm:text-sm">{l.role}</p>
           </div>
         </div>
-        <p className="rounded-2xl border border-white/10 bg-white/5 px-3 py-2.5 text-xs leading-relaxed text-white/90 sm:px-3.5 sm:py-3 sm:text-sm">
+        <p className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-xs">
           {l.detail}
         </p>
       </div>
