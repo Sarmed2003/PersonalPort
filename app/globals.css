@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #09090b;
+  --foreground: #fafafa;
 }
 
 @theme inline {
@@ -12,15 +12,108 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Rich but controlled: warm amber (TR) → slate-teal (mid) → deep navy (BL). Slightly lighter base for legibility. */
+/* prettier-ignore */
+body {
+  min-height: 100dvh;
+  color: var(--foreground);
+  position: relative;
+  z-index: 0;
+  background-color: #0c1422;
+  background-attachment: fixed, fixed, fixed, fixed, fixed, fixed;
+  /* Grain → warm TR → cool teal (L) → blue vignette BL → main multi-hue diagonal → dither */
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 256 256' width='256' height='256' preserveAspectRatio='none'%3E%3Cfilter id='a'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='table' tableValues='0 0.1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23a)' fill='white' fill-opacity='0.12'/%3E%3C/svg%3E"),
+    radial-gradient(ellipse 95% 60% at 100% 0%, rgba(255, 140, 80, 0.38) 0%, rgba(150, 70, 45, 0.16) 38%, transparent 60%),
+    radial-gradient(ellipse 70% 55% at 8% 48%, rgba(45, 160, 155, 0.3) 0%, rgba(35, 100, 105, 0.14) 42%, transparent 62%),
+    radial-gradient(ellipse 90% 65% at 0% 100%, rgba(8, 35, 70, 0.42) 0%, rgba(8, 28, 50, 0.18) 48%, transparent 62%),
+    linear-gradient(
+      to bottom left,
+      #5a3820 0%,
+      #4a2a1a 5%,
+      #352418 10%,
+      #253038 24%,
+      #1a3840 36%,
+      #123848 50%,
+      #0c3040 58%,
+      #082a38 70%,
+      #0a1c2a 85%,
+      #060a14 100%
+    ),
+    repeating-linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(0, 0, 0, 0) 1px,
+      rgba(255, 255, 255, 0.016) 1px,
+      rgba(255, 255, 255, 0.016) 2px
+    );
+  background-size: 200px 200px, 100% 100%, 100% 100%, 100% 100%, 100% 100%, 3px 100%;
+  background-repeat: repeat, no-repeat, no-repeat, no-repeat, no-repeat, no-repeat;
+  background-blend-mode: normal, normal, normal, normal, normal, normal;
+}
+
+html {
+  min-height: 100dvh;
+  background: #0a1020;
+}
+
+.ua-page-bg {
+  min-height: 100dvh;
+  color: #f1f5f9;
+  position: relative;
+  z-index: 1;
+}
+
+/* Typewriter intro — legible on variable background */
+.ua-hero-text {
+  color: #f8fafc;
+  text-shadow:
+    0 0 1px rgba(0, 0, 0, 0.95),
+    0 1px 3px rgba(0, 0, 0, 0.9),
+    0 2px 16px rgba(0, 0, 0, 0.7),
+    0 0 32px rgba(0, 0, 0, 0.45);
+}
+
+.ua-hero-scrim {
+  border-radius: 1rem;
+  background: linear-gradient(180deg, rgba(0, 4, 12, 0.5) 0%, rgba(0, 2, 8, 0.25) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  padding: 0.75rem 1rem;
+}
+@media (min-width: 768px) {
+  .ua-hero-scrim {
+    padding: 0.5rem 0.75rem;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Dark, low-contrast scrollbars (matches slate phone / panel UIs, not system white) */
+.ua-themed-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(45, 55, 75, 0.65) rgba(2, 6, 12, 0.35);
+}
+.ua-themed-scrollbar::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+.ua-themed-scrollbar::-webkit-scrollbar-track {
+  background: rgba(2, 6, 14, 0.25);
+  border-radius: 9999px;
+}
+.ua-themed-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(30, 41, 60, 0.85);
+  border-radius: 9999px;
+  border: 1px solid rgba(2, 6, 12, 0.2);
+}
+.ua-themed-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(51, 65, 85, 0.9);
 }

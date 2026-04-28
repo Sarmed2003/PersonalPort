@@ -1,0 +1,140 @@
+"use client";
+
+import Image from "next/image";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+export type PanelState =
+  | { kind: "welcome" }
+  | {
+      kind: "content";
+      title: string;
+      subtitle?: string;
+      body: string[];
+      footnote?: string;
+      links?: { label: string; href: string; download?: string }[];
+      badge?: string;
+      /** Project (or other) visual shown above the text block */
+      imageSrc?: string;
+      imageAlt?: string;
+      /** One line under the image, before the title list */
+      lead?: string;
+    };
+
+const e = { type: "spring" as const, stiffness: 400, damping: 34 };
+
+export function ContextPanel({ state }: { state: PanelState }) {
+  const reduce = useReducedMotion();
+
+  return (
+    <motion.aside
+      className="ua-themed-scrollbar mx-auto flex h-auto w-full min-h-0 max-h-[min(72dvh,640px)] max-w-[min(100%,20rem)] flex-col justify-start overflow-y-auto rounded-2xl border border-white/10 bg-slate-950/88 p-5 shadow-[0_8px_32px_rgba(0,0,0,0.45),inset_0_1px_0_rgba(255,255,255,0.04)] backdrop-blur-md md:max-w-[22rem] md:p-6 lg:max-w-[23rem]"
+      aria-live="polite"
+      initial={false}
+      animate={reduce ? { y: 0 } : { y: [0, -6, -2, -6, 0] }}
+      transition={
+        reduce
+          ? { duration: 0 }
+          : { duration: 6, repeat: Infinity, ease: "easeInOut", times: [0, 0.3, 0.55, 0.8, 1] }
+      }
+    >
+      <AnimatePresence mode="wait">
+        {state.kind === "welcome" ? (
+          <motion.div
+            key="welcome"
+            initial={{ opacity: 0, y: 10, scale: 0.99 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -8, scale: 0.99 }}
+            transition={e}
+            className="space-y-3"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-400/90">
+              Context
+            </p>
+            <h2 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
+              Tap an app or a topic chip.
+            </h2>
+            <p className="text-sm leading-relaxed text-slate-200/80 md:text-base">
+              The device is a quick map of who I am. This panel adds depth —
+              impact, tools, and the story behind each tap.
+            </p>
+          </motion.div>
+        ) : (
+          <motion.div
+            key={state.title}
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={e}
+            className="space-y-4"
+          >
+            {state.imageSrc ? (
+              <div className="overflow-hidden rounded-xl border border-white/10 bg-slate-950/70 ring-0">
+                <div className="relative aspect-[16/9] w-full sm:max-h-44 sm:min-h-0">
+                  <Image
+                    src={state.imageSrc}
+                    alt={state.imageAlt ?? state.title}
+                    fill
+                    className="object-contain object-top"
+                    sizes="(max-width: 24rem) 100vw, 20rem"
+                    unoptimized
+                  />
+                </div>
+              </div>
+            ) : null}
+            {state.lead ? (
+              <p className="text-sm leading-relaxed text-slate-200/90 md:text-[0.95rem]">
+                {state.lead}
+              </p>
+            ) : null}
+            <header className="space-y-1.5">
+              {state.badge ? (
+                <span className="inline-flex rounded-full bg-white/8 px-2.5 py-1 text-[11px] font-medium text-slate-200">
+                  {state.badge}
+                </span>
+              ) : null}
+              <h2 className="text-xl font-semibold tracking-tight text-white sm:text-2xl">
+                {state.title}
+              </h2>
+              {state.subtitle ? (
+                <p className="text-sm text-slate-200/80 md:text-base">{state.subtitle}</p>
+              ) : null}
+            </header>
+            <ul className="space-y-2.5 text-sm leading-relaxed text-slate-100/90 md:text-base">
+              {state.body.map((line) => (
+                <li key={line} className="flex gap-2">
+                  <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400/70" />
+                  <span>{line}</span>
+                </li>
+              ))}
+            </ul>
+            {state.links?.length ? (
+              <motion.div
+                className="flex flex-wrap gap-2 pt-1"
+                initial={{ opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ ...e, delay: 0.05 }}
+              >
+                {state.links.map((l) => (
+                  <a
+                    key={`${l.label}-${l.href}`}
+                    href={l.href}
+                    download={l.download}
+                    target={l.download ? undefined : "_blank"}
+                    rel={l.download ? undefined : "noopener noreferrer"}
+                    className="rounded-full border border-white/15 bg-white/8 px-2.5 py-1 text-xs font-medium text-slate-100/95 transition hover:bg-white/12 md:px-3 md:py-1.5 md:text-sm"
+                  >
+                    {l.label}
+                  </a>
+                ))}
+              </motion.div>
+            ) : null}
+            {state.footnote ? (
+              <p className="border-t border-white/8 pt-3 text-xs text-slate-200/50 md:text-sm">
+                {state.footnote}
+              </p>
+            ) : null}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.aside>
+  );
+}
