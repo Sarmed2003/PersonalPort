@@ -374,17 +374,20 @@ export const profile = {
     },
     {
       id: "premier-league-ml",
-      name: "PremierLeagueML",
+      name: "PitchIQ",
       date: "2025-12",
-      panelImage: "/projects/premier-league-ml.png",
+      panelImage: "/projects/pitchiq.png",
+      /** Desktop context panel only — second hero (phone keeps panelImage) */
+      contextPanelImageSecondary: "/projects/pitchiq-context.png" as const,
       panelSummary:
         "Senior project: Premier League–themed experience with ML and a sports-focused web UI.",
       accolade: "Senior project",
       stack: ["TypeScript", "Next.js", "Python", "scikit-learn", "Jupyter", "Vercel"],
       bullets: [
-        "End-to-end capstone with a marketing-style landing, navigation, and football-themed visual system.",
-        "Machine learning and data features aligned with Premier League interest and senior coursework goals.",
-        "Emphasis on clear IA, search, and presentation of league-related content for users.",
+        "Idempotency + rate limiting on every mutating route so retries are safe and a runaway client can't burn API quota.",
+        "CI/CD pipeline — GitHub Actions runs lint, typecheck, Vitest, Playwright, and next build on every PR before Vercel promotes.",
+        "Load tested to 5,000 concurrent matchday users via a k6 script.",
+        "Upstash Redis — HTTP-based cache + rate limiter (lineup edits, sync calls, waiver claims, AI chat). Works from edge runtimes; survives matchday traffic spikes without bleeding into the DB.",
       ],
     },
   ],

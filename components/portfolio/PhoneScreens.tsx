@@ -44,7 +44,7 @@ export function PhoneScreens({
   return (
     <div className="flex h-full min-h-0 w-full min-w-0 flex-1 flex-col bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950">
       <div className="shrink-0 border-b border-white/6 bg-slate-950/40 px-1.5 py-1">
-        <p className="px-0.5 pb-0.5 text-[8px] font-medium uppercase tracking-wider text-slate-500">
+        <p className="px-0.5 pb-0.5 text-[10px] font-medium uppercase tracking-wider text-slate-500">
           Scroll through these tiles to learn more!
         </p>
         <div className="flex flex-wrap gap-1 sm:flex-nowrap sm:overflow-x-auto sm:pb-0.5 [-ms-overflow-style:none] [scrollbar-width:none] sm:[&::-webkit-scrollbar]:hidden">
@@ -58,7 +58,7 @@ export function PhoneScreens({
                 whileTap={{ scale: 0.96 }}
                 whileHover={{ scale: 1.02 }}
                 transition={sp}
-                className={`shrink-0 rounded-full px-1.5 py-0.5 text-[10px] font-medium transition sm:px-2 sm:py-1 sm:text-[11px] ${
+                className={`shrink-0 rounded-full px-1.5 py-0.5 text-[11px] font-medium transition sm:px-2 sm:py-1 sm:text-xs ${
                   on
                     ? "bg-white/12 text-white ring-1 ring-white/18"
                     : "bg-white/6 text-white/90 hover:bg-white/10"
@@ -86,7 +86,7 @@ export function PhoneScreens({
                 <p className="text-xs font-semibold text-white sm:text-sm">
                   {profile.name.split(" ")[0]}&apos;s portfolio
                 </p>
-                <p className="mt-0.5 text-[11px] text-white/50 sm:text-xs">
+                <p className="mt-0.5 text-xs text-white/50 sm:text-sm">
                   Scroll and tap an app
                 </p>
               </div>
@@ -333,7 +333,7 @@ function AppList({
                   <p className="text-xs font-semibold text-white sm:text-sm">
                     {p.name}
                   </p>
-                  <p className="line-clamp-1 text-[11px] text-slate-400/95 sm:text-xs sm:text-slate-300/90">
+                  <p className="line-clamp-1 text-xs text-slate-400/95 sm:text-sm sm:text-slate-300/90">
                     {oneLine}
                   </p>
                 </div>
@@ -423,7 +423,7 @@ function EducationRecordFull() {
       {lines.map((line) => (
         <p
           key={line}
-          className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-xs"
+          className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-sm"
         >
           {line}
         </p>
@@ -455,7 +455,7 @@ function StaticAppBody({ app }: { app: AppId }) {
                 sizes="(max-width: 28rem) 100vw, 18rem"
               />
             </div>
-            <p className="bg-slate-950/70 px-2 py-1.5 text-center text-[10px] font-medium text-slate-200/95 sm:text-xs">
+            <p className="bg-slate-950/70 px-2 py-1.5 text-center text-[11px] font-medium text-slate-200/95 sm:text-sm">
               Tap to open full PDF
             </p>
           </div>
@@ -465,14 +465,14 @@ function StaticAppBody({ app }: { app: AppId }) {
             href={profile.resumePdfUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl bg-gradient-to-r from-orange-500/20 to-rose-600/20 py-1.5 text-center text-[11px] font-semibold text-white ring-1 ring-white/20 sm:py-2 sm:text-xs"
+            className="rounded-xl bg-gradient-to-r from-orange-500/20 to-rose-600/20 py-1.5 text-center text-xs font-semibold text-white ring-1 ring-white/20 sm:py-2 sm:text-sm"
           >
             Open PDF
           </a>
           <a
             href={profile.resumePdfUrl}
             download="Sarmed-Mahmood-Resume-2026.pdf"
-            className="rounded-xl border border-white/20 py-1.5 text-center text-[11px] font-medium text-white/95 sm:py-2 sm:text-xs"
+            className="rounded-xl border border-white/20 py-1.5 text-center text-xs font-medium text-white/95 sm:py-2 sm:text-sm"
           >
             Download copy
           </a>
@@ -497,7 +497,7 @@ function StaticAppBody({ app }: { app: AppId }) {
                 />
               </div>
               <div>
-                <p className="text-[11px] font-semibold uppercase tracking-wider text-white/40">
+                <p className="text-xs font-semibold uppercase tracking-wider text-white/40">
                   Volunteering
                 </p>
                 <p className="mt-1 text-xs font-medium text-white sm:text-sm">
@@ -508,7 +508,7 @@ function StaticAppBody({ app }: { app: AppId }) {
                 </p>
               </div>
             </div>
-            <p className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-xs">
+            <p className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-sm">
               {v.storyShort}
             </p>
           </div>
@@ -541,7 +541,7 @@ function StaticAppBody({ app }: { app: AppId }) {
       {lines.map((line) => (
         <p
           key={line}
-          className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-xs"
+          className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-sm"
         >
           {line}
         </p>
@@ -550,7 +550,7 @@ function StaticAppBody({ app }: { app: AppId }) {
         <div className="flex flex-col gap-2 pt-2 sm:gap-2.5">
           <a
             href={`mailto:${profile.email}`}
-            className="rounded-xl bg-white/9 py-1.5 text-center text-[11px] font-semibold text-white ring-1 ring-white/15 sm:py-2 sm:text-xs"
+            className="rounded-xl bg-white/9 py-1.5 text-center text-xs font-semibold text-white ring-1 ring-white/15 sm:py-2 sm:text-sm"
           >
             Email me
           </a>
@@ -558,7 +558,7 @@ function StaticAppBody({ app }: { app: AppId }) {
             href={profile.links.linkedin}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl border border-white/15 py-1.5 text-center text-[11px] font-medium text-white sm:py-2 sm:text-xs"
+            className="rounded-xl border border-white/15 py-1.5 text-center text-xs font-medium text-white sm:py-2 sm:text-sm"
           >
             LinkedIn
           </a>
@@ -566,7 +566,7 @@ function StaticAppBody({ app }: { app: AppId }) {
             href={profile.links.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl border border-white/15 py-1.5 text-center text-[11px] font-medium text-white sm:py-2 sm:text-xs"
+            className="rounded-xl border border-white/15 py-1.5 text-center text-xs font-medium text-white sm:py-2 sm:text-sm"
           >
             GitHub
           </a>
@@ -618,7 +618,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
           ? row.detailLines.map((line) => (
               <p
                 key={line}
-                className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-xs"
+                className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-sm"
               >
                 {line}
               </p>
@@ -629,7 +629,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
             href={profile.linkedInLearning[0].credentialUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block rounded-lg bg-white/10 px-2 py-1 text-[11px] font-medium text-white ring-1 ring-white/15 sm:px-2.5 sm:py-1.5 sm:text-xs"
+            className="inline-block rounded-lg bg-white/10 px-2 py-1 text-xs font-medium text-white ring-1 ring-white/15 sm:px-2.5 sm:py-1.5 sm:text-sm"
           >
             Open credential
           </a>
@@ -676,7 +676,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
           {job.bullets.map((b) => (
             <li
               key={b}
-              className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-xs"
+              className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-sm"
             >
               {b}
             </li>
@@ -725,7 +725,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
                 href={p.liveUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/8 py-1.5 text-[11px] font-medium text-white/95 transition hover:bg-white/12 sm:py-2 sm:text-xs"
+                className="inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/8 py-1.5 text-xs font-medium text-white/95 transition hover:bg-white/12 sm:py-2 sm:text-sm"
               >
                 {"liveLabel" in p && p.liveLabel ? p.liveLabel : "Live site"}
               </a>
@@ -735,7 +735,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
                 href={p.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/8 py-1.5 text-[11px] font-medium text-white/95 transition hover:bg-white/12 sm:py-2 sm:text-xs"
+                className="inline-flex w-full items-center justify-center rounded-xl border border-white/20 bg-white/8 py-1.5 text-xs font-medium text-white/95 transition hover:bg-white/12 sm:py-2 sm:text-sm"
               >
                 {"githubLabel" in p && p.githubLabel ? p.githubLabel : "GitHub"}
               </a>
@@ -746,7 +746,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
           {p.bullets.map((b) => (
             <li
               key={b}
-              className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-xs"
+              className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-sm"
             >
               {b}
             </li>
@@ -796,7 +796,7 @@ function ItemDetail({ app, itemId }: { app: AppId; itemId: string }) {
             <p className="text-xs text-slate-200/90 sm:text-sm">{l.role}</p>
           </div>
         </div>
-        <p className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-[11px] leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-xs">
+        <p className="rounded-lg border border-white/10 bg-white/5 px-2 py-1.5 text-xs leading-snug text-white/90 sm:px-2.5 sm:py-2 sm:text-sm">
           {l.detail}
         </p>
       </div>
