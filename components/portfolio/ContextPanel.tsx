@@ -15,9 +15,6 @@ export type PanelState =
       /** Project (or other) visual shown above the text block */
       imageSrc?: string;
       imageAlt?: string;
-      /** Optional second visual (e.g. desktop context panel only) */
-      imageSrcSecondary?: string;
-      imageAltSecondary?: string;
       /** One line under the image, before the title list */
       lead?: string;
     };
@@ -75,20 +72,6 @@ export function ContextPanel({ state }: { state: PanelState }) {
                   <Image
                     src={state.imageSrc}
                     alt={state.imageAlt ?? state.title}
-                    fill
-                    className="object-contain object-top"
-                    sizes="(max-width: 24rem) 100vw, 20rem"
-                    unoptimized
-                  />
-                </div>
-              </div>
-            ) : null}
-            {state.imageSrcSecondary ? (
-              <div className="overflow-hidden rounded-lg border border-white/10 bg-slate-950/70 ring-0">
-                <div className="relative aspect-[16/9] w-full sm:max-h-40 sm:min-h-0">
-                  <Image
-                    src={state.imageSrcSecondary}
-                    alt={state.imageAltSecondary ?? state.title}
                     fill
                     className="object-contain object-top"
                     sizes="(max-width: 24rem) 100vw, 20rem"

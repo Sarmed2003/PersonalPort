@@ -205,11 +205,6 @@ function panelForItem(app: AppId, itemId: string): PanelState {
           ? p.contextPanelImage
           : p.panelImage,
       imageAlt: p.name,
-      imageSrcSecondary:
-        "contextPanelImageSecondary" in p && p.contextPanelImageSecondary
-          ? p.contextPanelImageSecondary
-          : undefined,
-      imageAltSecondary: p.name,
       lead: p.panelSummary,
       body: [...p.bullets],
       footnote: `Updated ${p.date}`,
